@@ -1,4 +1,4 @@
-#include<iostream>
+ο»Ώ#include<iostream>
 #include<string>
 using namespace std;
 
@@ -45,7 +45,7 @@ public:
 	//Metods
 	void print()const
 	{
-		cout << last_name << " " << first_name << " " << age << "λες" << endl;
+		cout << last_name << " " << first_name << " " << age << "Π»ΠµΡ‚" << endl;
 	}
 };
 class Student :public Human
@@ -181,6 +181,6 @@ void main()
 
 	Student stud("Pinkman", "Jessie", 25, "Chemistry", "WW_123", 85, 95);
 	stud.print();
-	Teacher teach("Friman", "Jim", 55, "Chemistry", "20", 0);
+	Teacher teach("Freeman", "Morgan", 55, "Chemistry", 20, 0);
 	teach.print();
 }
