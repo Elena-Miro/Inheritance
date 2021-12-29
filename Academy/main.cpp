@@ -113,6 +113,66 @@ public:
 	}
 
 };
+class Teacher :public Human
+{
+	std::string speciality;
+	unsigned int experience;
+	double evil;
+	
+
+public:
+	const std::string& get_speciality()const
+	{
+		return speciality;
+	}
+	unsigned int get_experience() const
+	{
+		return experience;
+	}
+	double get_evil() const
+	{
+		return evil;
+	}
+	
+	void set_speciality(const std::string& speciality)
+	{
+		this->speciality = speciality;
+	}
+	void set_experience(unsigned int experience)
+	{
+		this->experience = experience;
+	}
+	void set_evil(double evil)
+	{
+		this->evil = evil;
+	}
+	
+	//Constructors
+	Teacher
+	(
+		const std::string last_name, const std::string first_name, unsigned int age,
+		const std::string& speciality, unsigned int experience, double evil
+	)
+		:Human(last_name, first_name, age)
+	{
+		set_speciality(speciality);
+		set_experience(experience);
+		set_evil(evil);
+		
+		cout << "TConstructor:\t" << this << endl;
+	}
+	~Teacher()
+	{
+		cout << "TDestructor:\t" << this << endl;
+	}
+	void print()const
+	{
+		Human::print();
+		cout << speciality << " " << experience << " " << evil << " " << endl;
+	}
+
+};
+
 void main()
 {
 	setlocale(LC_ALL, "");
@@ -121,4 +181,6 @@ void main()
 
 	Student stud("Pinkman", "Jessie", 25, "Chemistry", "WW_123", 85, 95);
 	stud.print();
+	Teacher teach("Friman", "Jim", 55, "Chemistry", "20", 0);
+	teach.print();
 }
