@@ -172,6 +172,38 @@ public:
 	}
 
 };
+class Graduate :public Student
+{
+	std::string subject;
+public:
+	const std::string& get_subject()const
+	{
+		return subject;
+	}
+	void set_subject(const std::string& subject)
+	{
+		this->subject = subject;
+	}
+	//						Constructors:
+	Graduate(
+		const std::string& last_name, const std::string& first_name, unsigned int age,
+		const std::string& speciality, const std::string& group, double rating, double attendance,
+		const std::string& subject) :Student(last_name, first_name, age, speciality, group, rating, attendance)
+	{
+		set_subject(subject);
+		cout << "GConstructor:\t" << this << endl;
+	}
+	~Graduate()
+	{
+		cout << "GDestructor:\t" << this << endl;
+	}
+	//						Methods:
+	void print()const
+	{
+		Student::print();
+		cout << subject << endl;
+	}
+};
 
 void main()
 {
@@ -183,4 +215,6 @@ void main()
 	stud.print();
 	Teacher teach("Freeman", "Morgan", 55, "Chemistry", 20, 0);
 	teach.print();
+	Graduate grad("Shreder", "Hank", 40, "Cryminalistic", "WW_123", 90, 75, "How to catch Heizenberg");
+	grad.print();
 }
