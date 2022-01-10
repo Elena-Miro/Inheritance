@@ -1,4 +1,4 @@
-#include<iostream>
+ï»¿#include<iostream>
 #include<string>
 using namespace std;
 
@@ -47,7 +47,7 @@ public:
 	//Metods
 	virtual void print()const
 	{
-		cout << last_name << " " << first_name << " " << age << "ëåò" << endl;
+		cout << last_name << " " << first_name << " " << age << "Ð»ÐµÑ‚" << endl;
 	}
 };
 #define EMPLOYEE_TAKE_PARAMETRS const std::string& position
@@ -118,8 +118,8 @@ public:
 #define HOURLY_EMPLOYEE_GIVE_PARAMETRS rate,hours
 class HourlyEmployee :public Employee
 {
-	double rate; //ñòàâêà çà 1 ÷àñ
-	int hours;//êîë-âî îòðàáîòàííûõ ÷àñîâ
+	double rate; //ÑÑ‚Ð°Ð²ÐºÐ° Ð·Ð° 1 Ñ‡Ð°Ñ
+	int hours;//ÐºÐ¾Ð»-Ð²Ð¾ Ð¾Ñ‚Ñ€Ð°Ð±Ð¾Ñ‚Ð°Ð½Ð½Ñ‹Ñ… Ñ‡Ð°ÑÐ¾Ð²
 public:
 	double get_rate()const
 	{
@@ -155,7 +155,7 @@ public:
 	void print()const
 	{
 		Employee::print();
-		cout << "Òàðèô: " << rate << " îòðàáîòàíî: " << hours<<" èòîãî: " << get_salary();
+		cout << "Ð¢Ð°Ñ€Ð¸Ñ„: " << rate << " Ð¾Ñ‚Ñ€Ð°Ð±Ð¾Ñ‚Ð°Ð½Ð¾: " << hours<<" Ð¸Ñ‚Ð¾Ð³Ð¾: " << get_salary();
 		cout << endl;
 	}
 	};
@@ -182,7 +182,7 @@ void main()
 		
 	}
 	cout << "\n----------------------------------"<<endl;
-	cout << "Îáùàÿ çàðïëàòà âñåãî îòäåëà:" << total_salary << endl;
+	cout << "ÐžÐ±Ñ‰Ð°Ñ Ð·Ð°Ñ€Ð¿Ð»Ð°Ñ‚Ð° Ð²ÑÐµÐ³Ð¾ Ð¾Ñ‚Ð´ÐµÐ»Ð°:" << total_salary << endl;
 	cout << "\n----------------------------------"<<endl;
 	for (int i = 0; i < sizeof(department) / sizeof(Employee*); i++)
 	{
