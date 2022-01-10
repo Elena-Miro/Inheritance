@@ -1,5 +1,6 @@
 ﻿#include<iostream>
 #include<string>
+#include <fstream>
 using namespace std;
 #define HUMAN_TAKE_PARAMETRS const std::string& last_name, const std::string& first_name, unsigned int age
 #define HUMAN_GIVE_PARAMETRS last_name,first_name,age
@@ -208,6 +209,8 @@ public:
 void main()
 {
 	setlocale(LC_ALL, "");
+	ofstream myfile;
+	myfile.open("example.txt");
 #ifdef INHERITANCE_CHECK
 	Human human("Connor", "John", 18);
 	human.print();
@@ -229,7 +232,7 @@ void main()
 	new Teacher("Diaz", "Ricardo",55,"Weapons distribution",30,10),
 	new Student("Montana","Antonio",30,"Cryminalistic","Vice",90,80),
 	};
-	cout << sizeof(group) / sizeof(Human*) << endl;//Вычисляем размер массивово в элементах
+	cout << sizeof(group) / sizeof(Human*) << endl;//Вычисляем размер массивов в элементах
 	//оператор sizeof()возвращает в байтах
 	for (int i = 0; i < sizeof(group)/sizeof(Human*); i++)
 	{
@@ -238,9 +241,22 @@ void main()
 		group[i]->print();
 		cout << "\n---------------------------------------\n";
 	}
+	
 	/////////////////////////////
 	for (int i = 0; i< sizeof(group) / sizeof(group[0]); i++)
 	{
 		delete group[i];
 	}
+	/*ofstream fout;
+	fout.open(path, ofstream::app);
+	if (!fout.is_open())
+	{
+		cout << "Ошибка открытия файла!" << endl;
+	}
+	else
+	{
+		cout << "Файл открыт" << endl;
+		fout.write((typeid*)&group[].name(), sizeof(Human));
+	}
+	fout.close();*/
 }
