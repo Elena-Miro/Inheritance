@@ -1,4 +1,5 @@
 ﻿#include<iostream>
+#include<fstream>
 #include<string>
 using namespace std;
 
@@ -45,11 +46,24 @@ public:
 		cout << "HDestructor:\t" << this << endl;
 	}
 	//Metods
-	virtual void print()const
+	virtual std::ostream& print(std::ostream& os=cout)const
 	{
-		cout << last_name << " " << first_name << " " << age << "лет" << endl;
+	//return os << last_name << " " << first_name << " " << age << "лет";
+		os.width(10);
+		os << left;
+		os << last_name;
+		os.width(10);
+		os << first_name;
+		os.width(3);
+		os << age << "лет";
+		return os;
 	}
+	
 };
+std::ostream& operator<<(std::ostream& os, const Human& obj)
+{
+	return obj.print(os);
+}
 #define EMPLOYEE_TAKE_PARAMETRS const std::string& position
 #define EMPLOYEE_GIVE_PARAMETRS position
 class Employee :public Human
@@ -75,11 +89,11 @@ public:
 	{
 		cout << "EDeconstructor:\t" << this << endl;
 	}
-	void print()const
+	std::ostream& print(std::ostream& os)const
 	{
-		Human::print();
-		cout << position;
-		cout << endl;
+		Human::print(os)<<" ";
+		return os << position;
+		
 	}
 };
 #define PERMANENT_EMLOYEE_TAKE_PARAMETRS double salary
@@ -106,11 +120,11 @@ public:
 	{
 		cout << "EPDeconstructor:\t" << this << endl;
 	}
-	void print()const
+	std::ostream& print(std::ostream& os)const
 	{
-		Employee::print();
-		cout << salary;
-		cout << endl;
+		Employee::print(os)<<" ";
+		return os<< salary;
+		
 	}
 
 };
@@ -152,11 +166,11 @@ public:
 	{
 		cout << "HEDestructor:\t" << this << endl;
 	}
-	void print()const
+	std::ostream& print(std::ostream& os)const
 	{
-		Employee::print();
-		cout << "Тариф: " << rate << " отработано: " << hours<<" итого: " << get_salary();
-		cout << endl;
+		Employee::print(os)<<" ";
+		return os << "Тариф: " << rate << " отработано: " << hours<<" итого: " << get_salary();
+		
 	}
 	};
 void main()
@@ -177,13 +191,24 @@ void main()
 	for (int i = 0; i < sizeof(department) / sizeof(Employee*); i++)
 	{
 		cout << "\n----------------------------------"<<endl;
-		department[i]->print();
+		//department[i]->print();
+		cout << *department[i] << endl;
 		total_salary += department[i]->get_salary();
 		
 	}
 	cout << "\n----------------------------------"<<endl;
 	cout << "Общая зарплата всего отдела:" << total_salary << endl;
 	cout << "\n----------------------------------"<<endl;
+
+	ofstream fout("file.txt");
+	for (int i = 0; i < sizeof(department) / sizeof(Employee*); i++)
+	{
+		fout.width(25);
+		fout << left;
+		fout << string (typeid(*department[i]).name())+":" << *department[i] << endl;
+	}
+	fout.close();
+	system("start notepad file.txt");
 	for (int i = 0; i < sizeof(department) / sizeof(Employee*); i++)
 	{
 		delete department[i];
