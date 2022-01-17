@@ -92,7 +92,10 @@ public:
 	std::ostream& print(std::ostream& os)const
 	{
 		Human::print(os)<<" ";
-		return os << position;
+		os.width(10);
+		os << left;
+		os << position;
+		return os;
 		
 	}
 };
@@ -116,18 +119,26 @@ public:
 		set_salary(salary);
 		cout << "PEConstructor:\t" << this << endl;
 	}
+	
 	~PermanentEmployee()
 	{
 		cout << "EPDeconstructor:\t" << this << endl;
 	}
 	std::ostream& print(std::ostream& os)const
 	{
+		
 		Employee::print(os)<<" ";
-		return os<< salary;
+		os.width(10);
+		os << left;
+		os << salary;
+	    return os;
 		
 	}
+	
 
 };
+
+
 #define HOURLY_EMPLOYEE_TAKE_PARAMETRS double rate, int hours
 #define HOURLY_EMPLOYEE_GIVE_PARAMETRS rate,hours
 class HourlyEmployee :public Employee
@@ -196,10 +207,13 @@ void main()
 		total_salary += department[i]->get_salary();
 		
 	}
-	cout << "\n----------------------------------"<<endl;
-	cout << "Общая зарплата всего отдела:" << total_salary << endl;
-	cout << "\n----------------------------------"<<endl;
+	PermanentEmployee pe;
+	cout << "Введите информацию о сотруднике: ";
+	cin >> pe;
 
+
+	
+	
 	ofstream fout("file.txt");
 	for (int i = 0; i < sizeof(department) / sizeof(Employee*); i++)
 	{
@@ -207,6 +221,9 @@ void main()
 		fout << left;
 		fout << string (typeid(*department[i]).name())+":" << *department[i] << endl;
 	}
+	fout << "\n----------------------------------" << endl;
+	fout << "Общая зарплата всего отдела:" << total_salary << endl;
+	fout << "\n----------------------------------" << endl;
 	fout.close();
 	system("start notepad file.txt");
 	for (int i = 0; i < sizeof(department) / sizeof(Employee*); i++)
