@@ -1,6 +1,6 @@
-class PermanentEmployee: Rosenberg Ken       30 лет Lawer      2000      
-class PermanentEmployee: Diaz      Ricardo   50 лет Boss       50000     
-class HourlyEmployee:    Vercetty  Tomas     30 лет Security   Тариф: 500 отработано: 8 итого: 4000
+class PermanentEmployee: Rosenberg Ken       30  Lawer            2000
+class PermanentEmployee: Diaz      Ricardo   50  Boss            50000
+class HourlyEmployee:    Vercetty  Tomas     30  Security          500  8
 
 ----------------------------------
 Общая зарплата всего отдела:56000

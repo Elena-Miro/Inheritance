@@ -46,7 +46,7 @@ public:
 		cout << "HDestructor:\t" << this << endl;
 	}
 	//Metods
-	virtual std::ostream& print(std::ostream& os=cout)const
+	virtual std::ostream& print(std::ostream& os)const
 	{
 	//return os << last_name << " " << first_name << " " << age << "лет";
 		os.width(10);
@@ -55,12 +55,28 @@ public:
 		os.width(10);
 		os << first_name;
 		os.width(3);
-		os << age << "лет";
+		os << age <<" лет";
+		return os;
+	}
+	virtual std::ofstream& print(std::ofstream& os)const
+	{
+	//return os << last_name << " " << first_name << " " << age << "лет";
+		os.width(10);
+		os << left;
+		os << last_name;
+		os.width(10);
+		os << first_name;
+		os.width(3);
+		os << age ;
 		return os;
 	}
 	
 };
-std::ostream& operator<<(std::ostream& os, const Human& obj)
+ostream& operator<<(ostream& os, const Human& obj)
+{
+	return obj.print(os);
+}
+ofstream& operator<<(ofstream& os, const Human& obj)
 {
 	return obj.print(os);
 }
@@ -98,6 +114,15 @@ public:
 		return os;
 		
 	}
+	std::ofstream& print(std::ofstream& os)const
+	{
+		Human::print(os) << " ";
+		os.width(10);
+		os << left;
+		os << position;
+		return os;
+
+	}
 };
 #define PERMANENT_EMLOYEE_TAKE_PARAMETRS double salary
 #define PERMANENT_EMLOYEE_GIVE_PARAMETRS salary
@@ -117,8 +142,9 @@ public:
 		:Employee(HUMAN_GIVE_PARAMETRS, EMPLOYEE_GIVE_PARAMETRS)
 	{
 		set_salary(salary);
-		cout << "PEConstructor:\t" << this << endl;
+		cout << "PECopyConstructor:\t" << this << endl;
 	}
+
 	
 	~PermanentEmployee()
 	{
@@ -129,11 +155,22 @@ public:
 		
 		Employee::print(os)<<" ";
 		os.width(10);
-		os << left;
+		os << right;
 		os << salary;
 	    return os;
 		
 	}
+	std::ofstream& print(std::ofstream& os)const
+	{
+
+		Employee::print(os) << " ";
+		os.width(10);
+		os << right;
+		os << salary;
+		return os;
+
+	}
+	
 	
 
 };
@@ -173,6 +210,7 @@ public:
 		set_hours(hours);
 		cout << "HEConstructor:\t" << this << endl;
 	}
+
 	~HourlyEmployee()
 	{
 		cout << "HEDestructor:\t" << this << endl;
@@ -180,8 +218,27 @@ public:
 	std::ostream& print(std::ostream& os)const
 	{
 		Employee::print(os)<<" ";
-		return os << "Тариф: " << rate << " отработано: " << hours<<" итого: " << get_salary();
+		os << "Тариф: ";
+		os.width(5);
+		os << right;
+		os << rate;
+		os << " отработано: ";
+		os.width(3);
+		os<< hours<<" итого: " << get_salary();
+		return os;
 		
+	}
+	std::ofstream& print(std::ofstream& os)const
+	{
+		Employee::print(os) << " ";
+		
+		os.width(10);
+		os << right;
+		os << rate;
+		os.width(3);
+		os << hours;
+		return os;
+
 	}
 	};
 void main()
@@ -207,9 +264,9 @@ void main()
 		total_salary += department[i]->get_salary();
 		
 	}
-	PermanentEmployee pe;
+	/*PermanentEmployee pe;
 	cout << "Введите информацию о сотруднике: ";
-	cin >> pe;
+	cin >> pe;*/
 
 
 	
@@ -219,7 +276,8 @@ void main()
 	{
 		fout.width(25);
 		fout << left;
-		fout << string (typeid(*department[i]).name())+":" << *department[i] << endl;
+		fout << string(typeid(*department[i]).name()) + ":";
+		fout<< *department[i] << endl;
 	}
 	fout << "\n----------------------------------" << endl;
 	fout << "Общая зарплата всего отдела:" << total_salary << endl;
