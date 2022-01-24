@@ -108,7 +108,7 @@ public:
 void main()
 {
 	setlocale(LC_ALL, "");
-	Square square(, Color::green,100,300,5);
+	Square square(100, Color::green,100,300,5);
 	cout << "Сторона квадрата:\t" << square.get_side() << endl;
 	cout << "Площадь квадрата:\t" << square.get_area() << endl;
 	cout << "Периметр квдрата:\t" << square.get_perimeter() << endl;
