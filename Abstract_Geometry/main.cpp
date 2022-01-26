@@ -255,7 +255,7 @@ void main()
 	Geometry::Rectangle rect(200, 100, Geometry::Color::red, 110, 400, 5);
 	rect.info();
 
-	Geometry::Circle circle(150, Geometry::Color::blue, 5000, 100, 5);
+	Geometry::Circle circle(50, Geometry::Color::blue, 500, 200, 5);
 	circle.info();
 
 }
