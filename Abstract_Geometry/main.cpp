@@ -252,10 +252,10 @@ void main()
 	square.draw();*/
 	square.info();
 
-	Geometry::Rectangle rect(200, 100, Geometry::Color::red, 110, 400, 5);
+	Geometry::Rectangle rect(100, 50, Geometry::Color::red, 110, 400, 5);
 	rect.info();
 
-	Geometry::Circle circle(50, Geometry::Color::blue, 500, 200, 5);
+	Geometry::Circle circle(30, Geometry::Color::blue, 500, 50, 5);
 	circle.info();
 
 }
