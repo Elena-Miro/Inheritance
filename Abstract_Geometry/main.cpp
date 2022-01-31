@@ -1,4 +1,4 @@
-#define _USE_MATH_DEFINES
+Ôªø#define _USE_MATH_DEFINES
 #pragma warning(disable:4326)
 #include<Windows.h>
 #include<iostream>
@@ -7,7 +7,7 @@ using namespace std;
 namespace Geometry
 {
 
-	enum class Color    //ÒÓÁ‰‡ÂÏ ÚËÔ ‰‡ÌÌ˚ı color
+	enum class Color    //—Å–æ–∑–¥–∞–µ–º —Ç–∏–ø –¥–∞–Ω–Ω—ã—Ö color
 	{
 		red = 0x000000FF,
 		green = 0x0000FF00,
@@ -35,6 +35,7 @@ namespace Geometry
 			if (start_y > 300)start_y = 300;
 			this->start_y = start_y;
 		}
+		
 		void set_line_width(unsigned int line_width)
 		{
 			if (line_width > 20)line_width = 20;
@@ -52,11 +53,11 @@ namespace Geometry
 		virtual void draw()const = 0;
 		virtual void info() const
 		{
-			cout << "œÎÓ˘‡‰¸:\t" << get_area() << endl;
-			cout << "œÂËÏÂÚ:\t" << get_perimeter() << endl;
+			cout << "–ü–ª–æ—â–∞–¥—å:\t" << get_area() << endl;
+			cout << "–ü–µ—Ä–∏–º–µ—Ç—Ä:\t" << get_perimeter() << endl;
 			draw();
 		}
-
+		
 	};
 	class Square :public Shape
 	{
@@ -101,24 +102,24 @@ namespace Geometry
 			}
 			SetConsoleTextAttribute(hConsole, (WORD)Color::console_default);*/
 			//H-Handle
-			HWND hConsole = GetConsoleWindow();//ÔÓÎÛ˜‡ÂÏ ÓÍÌÓ ÍÓÌÒÓÎË, ˜ÚÓ·˚ Í ÌÂÏÛ Ï · Ó·‡ÚËÚ¸Òˇ
-			HDC hdc = GetDC(hConsole);//ÒÓÁ‰‡ÂÏ ÍÓÌÚÂÍÒÚ ÛÒÚÓÈÒÚ‚‡ ‰Îˇ ÔÓÎÛ˜ÂÌÌÓ„Ó ÓÍÌ‡
-			HPEN hPen = CreatePen(PS_SOLID, line_width, (COLORREF)color);//ÒÓÁ‰‡ÂÏ Í‡‡Ì‰‡¯,ÍÓÚÓ˚È ·Û‰ÂÚ ËÒÓ‚‡Ú¸ ÍÓÌÚÛ
-			//PSSOLID-ÒÔÎÓ¯Ì‡ˇ ÎËÌËˇ 5 ÚÓÎ˘ËÌ‡ ÎËÌËË 5 ÔÍÒ,„·()
-			SelectObject(hdc, hPen);//‚˚·Ë‡ÂÏ ÒÓÁ‰‡ÌÌ˚È Í‡‡Ì‰‡¯,˜ÚÓ· ËÏ Ï · ËÒÓ‚‡Ú¸
-			HBRUSH hBrush = CreateSolidBrush((COLORREF)color);//ÒÓÁ‰‡ÂÏ ÍËÒÚ¸,ÍËÒÚ¸ Á‡Í‡¯Ë‚‡ÂÚ Á‡ÏÍÌÛÚ˚Â ÙË„Û˚
-			SelectObject(hdc, hBrush);//‚˚·Ë‡ÂÏ ÒÓÁ‰‡ÌÌÛ˛ ÍËÒÚ¸ //ÍËÒÚ¸ Ë Í‡‡Ì‰‡¯ ‚˚·Ë‡˛ÚÒˇ ‰Îˇ ÚÓ„Ó, ˜ÚÓ·˚ ÙÛÌÍˆËˇ ÂÍÚÂÌ„Î ÔÓÌËÏ‡Î‡ ˜ÂÏ ËÒÓ‚‡Ú¸
-			::Rectangle(hdc, start_x, start_y, start_x + side, start_y + side);//ËÒÛÂÚ Í‚‡‰‡Ú
-			DeleteObject(hBrush);//Û‰‡ÎˇÂÏ ÒÓÁ‰‡ÌÌÛ˛ ÍËÒÚ¸ Ë Í‡‡Ì‰‡¯
+			HWND hConsole = GetConsoleWindow();//–ø–æ–ª—É—á–∞–µ–º –æ–∫–Ω–æ –∫–æ–Ω—Å–æ–ª–∏, —á—Ç–æ–±—ã –∫ –Ω–µ–º—É –º –± –æ–±—Ä–∞—Ç–∏—Ç—å—Å—è
+			HDC hdc = GetDC(hConsole);//—Å–æ–∑–¥–∞–µ–º –∫–æ–Ω—Ç–µ–∫—Å—Ç —É—Å—Ç—Ä–æ–π—Å—Ç–≤–∞ –¥–ª—è –ø–æ–ª—É—á–µ–Ω–Ω–æ–≥–æ –æ–∫–Ω–∞
+			HPEN hPen = CreatePen(PS_SOLID, line_width, (COLORREF)color);//—Å–æ–∑–¥–∞–µ–º –∫–∞—Ä–∞–Ω–¥–∞—à,–∫–æ—Ç–æ—Ä—ã–π –±—É–¥–µ—Ç —Ä–∏—Å–æ–≤–∞—Ç—å –∫–æ–Ω—Ç—É—Ä
+			//PSSOLID-—Å–ø–ª–æ—à–Ω–∞—è –ª–∏–Ω–∏—è 5 —Ç–æ–ª—â–∏–Ω–∞ –ª–∏–Ω–∏–∏ 5 –ø–∫—Å,—Ä–≥–±()
+			SelectObject(hdc, hPen);//–≤—ã–±–∏—Ä–∞–µ–º —Å–æ–∑–¥–∞–Ω–Ω—ã–π –∫–∞—Ä–∞–Ω–¥–∞—à,—á—Ç–æ–± –∏–º –º –± —Ä–∏—Å–æ–≤–∞—Ç—å
+			HBRUSH hBrush = CreateSolidBrush((COLORREF)color);//—Å–æ–∑–¥–∞–µ–º –∫–∏—Å—Ç—å,–∫–∏—Å—Ç—å –∑–∞–∫—Ä–∞—à–∏–≤–∞–µ—Ç –∑–∞–º–∫–Ω—É—Ç—ã–µ —Ñ–∏–≥—É—Ä—ã
+			SelectObject(hdc, hBrush);//–≤—ã–±–∏—Ä–∞–µ–º —Å–æ–∑–¥–∞–Ω–Ω—É—é –∫–∏—Å—Ç—å //–∫–∏—Å—Ç—å –∏ –∫–∞—Ä–∞–Ω–¥–∞—à –≤—ã–±–∏—Ä–∞—é—Ç—Å—è –¥–ª—è —Ç–æ–≥–æ, —á—Ç–æ–±—ã —Ñ—É–Ω–∫—Ü–∏—è —Ä–µ–∫—Ç–µ–Ω–≥–ª –ø–æ–Ω–∏–º–∞–ª–∞ —á–µ–º —Ä–∏—Å–æ–≤–∞—Ç—å
+			::Rectangle(hdc, start_x, start_y, start_x + side, start_y + side);//—Ä–∏—Å—É–µ—Ç –∫–≤–∞–¥—Ä–∞—Ç
+			DeleteObject(hBrush);//—É–¥–∞–ª—è–µ–º —Å–æ–∑–¥–∞–Ω–Ω—É—é –∫–∏—Å—Ç—å –∏ –∫–∞—Ä–∞–Ω–¥–∞—à
 			DeleteObject(hPen);
 
-			ReleaseDC(hConsole, hdc);//ÓÒ‚Ó·ÓÊ‰‡ÂÏ ÍÓÌÚÂÍÒÚ ÛÒÚÓÈÒÚ‚‡
+			ReleaseDC(hConsole, hdc);//–æ—Å–≤–æ–±–æ–∂–¥–∞–µ–º –∫–æ–Ω—Ç–µ–∫—Å—Ç —É—Å—Ç—Ä–æ–π—Å—Ç–≤–∞
 
 		}
 		void info()const
 		{
 			cout << typeid(*this).name() << endl;
-			cout << "ƒÎËÌ‡ ÒÚÓÓÌ˚:" << side << endl;
+			cout << "–î–ª–∏–Ω–∞ —Å—Ç–æ—Ä–æ–Ω—ã:" << side << endl;
 			Shape::info();
 		}
 	};
@@ -165,15 +166,15 @@ namespace Geometry
 		}
 		void draw()const
 		{
-			HWND hConsole = GetConsoleWindow();//ÔÓÎÛ˜‡ÂÏ ÓÍÌÓ ÍÓÌÒÓÎË, ˜ÚÓ·˚ Í ÌÂÏÛ Ï · Ó·‡ÚËÚ¸Òˇ
-			HDC hdc = GetDC(hConsole);//ÒÓÁ‰‡ÂÏ ÍÓÌÚÂÍÒÚ ÛÒÚÓÈÒÚ‚‡ ‰Îˇ ÔÓÎÛ˜ÂÌÌÓ„Ó ÓÍÌ‡
-			HPEN hPen = CreatePen(PS_SOLID, line_width, (COLORREF)color);//ÒÓÁ‰‡ÂÏ Í‡‡Ì‰‡¯,ÍÓÚÓ˚È ·Û‰ÂÚ ËÒÓ‚‡Ú¸ ÍÓÌÚÛ
-			//PSSOLID-ÒÔÎÓ¯Ì‡ˇ ÎËÌËˇ 5 ÚÓÎ˘ËÌ‡ ÎËÌËË 5 ÔÍÒ,„·()
-			SelectObject(hdc, hPen);//‚˚·Ë‡ÂÏ ÒÓÁ‰‡ÌÌ˚È Í‡‡Ì‰‡¯,˜ÚÓ· ËÏ Ï · ËÒÓ‚‡Ú¸
-			HBRUSH hBrush = CreateSolidBrush((COLORREF)color);//ÒÓÁ‰‡ÂÏ ÍËÒÚ¸,ÍËÒÚ¸ Á‡Í‡¯Ë‚‡ÂÚ Á‡ÏÍÌÛÚ˚Â ÙË„Û˚
-			SelectObject(hdc, hBrush);//‚˚·Ë‡ÂÏ ÒÓÁ‰‡ÌÌÛ˛ ÍËÒÚ¸ //ÍËÒÚ¸ Ë Í‡‡Ì‰‡¯ ‚˚·Ë‡˛ÚÒˇ ‰Îˇ ÚÓ„Ó, ˜ÚÓ·˚ ÙÛÌÍˆËˇ ÂÍÚÂÌ„Î ÔÓÌËÏ‡Î‡ ˜ÂÏ ËÒÓ‚‡Ú¸
-			::Rectangle(hdc, start_x, start_y, start_x + width, start_y + length);//ËÒÛÂÚ Í‚‡‰‡Ú
-			DeleteObject(hBrush);//Û‰‡ÎˇÂÏ ÒÓÁ‰‡ÌÌÛ˛ ÍËÒÚ¸ Ë Í‡‡Ì‰‡¯
+			HWND hConsole = GetConsoleWindow();//–ø–æ–ª—É—á–∞–µ–º –æ–∫–Ω–æ –∫–æ–Ω—Å–æ–ª–∏, —á—Ç–æ–±—ã –∫ –Ω–µ–º—É –º –± –æ–±—Ä–∞—Ç–∏—Ç—å—Å—è
+			HDC hdc = GetDC(hConsole);//—Å–æ–∑–¥–∞–µ–º –∫–æ–Ω—Ç–µ–∫—Å—Ç —É—Å—Ç—Ä–æ–π—Å—Ç–≤–∞ –¥–ª—è –ø–æ–ª—É—á–µ–Ω–Ω–æ–≥–æ –æ–∫–Ω–∞
+			HPEN hPen = CreatePen(PS_SOLID, line_width, (COLORREF)color);//—Å–æ–∑–¥–∞–µ–º –∫–∞—Ä–∞–Ω–¥–∞—à,–∫–æ—Ç–æ—Ä—ã–π –±—É–¥–µ—Ç —Ä–∏—Å–æ–≤–∞—Ç—å –∫–æ–Ω—Ç—É—Ä
+			//PSSOLID-—Å–ø–ª–æ—à–Ω–∞—è –ª–∏–Ω–∏—è 5 —Ç–æ–ª—â–∏–Ω–∞ –ª–∏–Ω–∏–∏ 5 –ø–∫—Å,—Ä–≥–±()
+			SelectObject(hdc, hPen);//–≤—ã–±–∏—Ä–∞–µ–º —Å–æ–∑–¥–∞–Ω–Ω—ã–π –∫–∞—Ä–∞–Ω–¥–∞—à,—á—Ç–æ–± –∏–º –º –± —Ä–∏—Å–æ–≤–∞—Ç—å
+			HBRUSH hBrush = CreateSolidBrush((COLORREF)color);//—Å–æ–∑–¥–∞–µ–º –∫–∏—Å—Ç—å,–∫–∏—Å—Ç—å –∑–∞–∫—Ä–∞—à–∏–≤–∞–µ—Ç –∑–∞–º–∫–Ω—É—Ç—ã–µ —Ñ–∏–≥—É—Ä—ã
+			SelectObject(hdc, hBrush);//–≤—ã–±–∏—Ä–∞–µ–º —Å–æ–∑–¥–∞–Ω–Ω—É—é –∫–∏—Å—Ç—å //–∫–∏—Å—Ç—å –∏ –∫–∞—Ä–∞–Ω–¥–∞—à –≤—ã–±–∏—Ä–∞—é—Ç—Å—è –¥–ª—è —Ç–æ–≥–æ, —á—Ç–æ–±—ã —Ñ—É–Ω–∫—Ü–∏—è —Ä–µ–∫—Ç–µ–Ω–≥–ª –ø–æ–Ω–∏–º–∞–ª–∞ —á–µ–º —Ä–∏—Å–æ–≤–∞—Ç—å
+			::Rectangle(hdc, start_x, start_y, start_x + width, start_y + length);//—Ä–∏—Å—É–µ—Ç –∫–≤–∞–¥—Ä–∞—Ç
+			DeleteObject(hBrush);//—É–¥–∞–ª—è–µ–º —Å–æ–∑–¥–∞–Ω–Ω—É—é –∫–∏—Å—Ç—å –∏ –∫–∞—Ä–∞–Ω–¥–∞—à
 			DeleteObject(hPen);
 
 			ReleaseDC(hConsole, hdc);
@@ -181,8 +182,8 @@ namespace Geometry
 		void info()const
 		{
 			cout << typeid(*this).name() << endl;
-			cout << "ÿËËÌ‡:\t" << width << endl;
-			cout << "ƒÎËÌ‡:\t" << length << endl;
+			cout << "–®–∏—Ä–∏–Ω–∞:\t" << width << endl;
+			cout << "–î–ª–∏–Ω–∞:\t" << length << endl;
 			Shape::info();
 		}
 	};
@@ -221,15 +222,15 @@ namespace Geometry
 		}
 		void draw()const
 		{
-			HWND hConsole = GetConsoleWindow();//ÔÓÎÛ˜‡ÂÏ ÓÍÌÓ ÍÓÌÒÓÎË, ˜ÚÓ·˚ Í ÌÂÏÛ Ï · Ó·‡ÚËÚ¸Òˇ
-			HDC hdc = GetDC(hConsole);//ÒÓÁ‰‡ÂÏ ÍÓÌÚÂÍÒÚ ÛÒÚÓÈÒÚ‚‡ ‰Îˇ ÔÓÎÛ˜ÂÌÌÓ„Ó ÓÍÌ‡
-			HPEN hPen = CreatePen(PS_SOLID, line_width, (COLORREF)color);//ÒÓÁ‰‡ÂÏ Í‡‡Ì‰‡¯,ÍÓÚÓ˚È ·Û‰ÂÚ ËÒÓ‚‡Ú¸ ÍÓÌÚÛ
-			//PSSOLID-ÒÔÎÓ¯Ì‡ˇ ÎËÌËˇ 5 ÚÓÎ˘ËÌ‡ ÎËÌËË 5 ÔÍÒ,„·()
-			SelectObject(hdc, hPen);//‚˚·Ë‡ÂÏ ÒÓÁ‰‡ÌÌ˚È Í‡‡Ì‰‡¯,˜ÚÓ· ËÏ Ï · ËÒÓ‚‡Ú¸
-			HBRUSH hBrush = CreateSolidBrush((COLORREF)color);//ÒÓÁ‰‡ÂÏ ÍËÒÚ¸,ÍËÒÚ¸ Á‡Í‡¯Ë‚‡ÂÚ Á‡ÏÍÌÛÚ˚Â ÙË„Û˚
-			SelectObject(hdc, hBrush);//‚˚·Ë‡ÂÏ ÒÓÁ‰‡ÌÌÛ˛ ÍËÒÚ¸ //ÍËÒÚ¸ Ë Í‡‡Ì‰‡¯ ‚˚·Ë‡˛ÚÒˇ ‰Îˇ ÚÓ„Ó, ˜ÚÓ·˚ ÙÛÌÍˆËˇ ÂÍÚÂÌ„Î ÔÓÌËÏ‡Î‡ ˜ÂÏ ËÒÓ‚‡Ú¸
-			::Ellipse(hdc, start_x, start_y, start_x + get_diameter(), start_y + get_diameter());//ËÒÛÂÚ Í‚‡‰‡Ú
-			DeleteObject(hBrush);//Û‰‡ÎˇÂÏ ÒÓÁ‰‡ÌÌÛ˛ ÍËÒÚ¸ Ë Í‡‡Ì‰‡¯
+			HWND hConsole = GetConsoleWindow();//–ø–æ–ª—É—á–∞–µ–º –æ–∫–Ω–æ –∫–æ–Ω—Å–æ–ª–∏, —á—Ç–æ–±—ã –∫ –Ω–µ–º—É –º –± –æ–±—Ä–∞—Ç–∏—Ç—å—Å—è
+			HDC hdc = GetDC(hConsole);//—Å–æ–∑–¥–∞–µ–º –∫–æ–Ω—Ç–µ–∫—Å—Ç —É—Å—Ç—Ä–æ–π—Å—Ç–≤–∞ –¥–ª—è –ø–æ–ª—É—á–µ–Ω–Ω–æ–≥–æ –æ–∫–Ω–∞
+			HPEN hPen = CreatePen(PS_SOLID, line_width, (COLORREF)color);//—Å–æ–∑–¥–∞–µ–º –∫–∞—Ä–∞–Ω–¥–∞—à,–∫–æ—Ç–æ—Ä—ã–π –±—É–¥–µ—Ç —Ä–∏—Å–æ–≤–∞—Ç—å –∫–æ–Ω—Ç—É—Ä
+			//PSSOLID-—Å–ø–ª–æ—à–Ω–∞—è –ª–∏–Ω–∏—è 5 —Ç–æ–ª—â–∏–Ω–∞ –ª–∏–Ω–∏–∏ 5 –ø–∫—Å,—Ä–≥–±()
+			SelectObject(hdc, hPen);//–≤—ã–±–∏—Ä–∞–µ–º —Å–æ–∑–¥–∞–Ω–Ω—ã–π –∫–∞—Ä–∞–Ω–¥–∞—à,—á—Ç–æ–± –∏–º –º –± —Ä–∏—Å–æ–≤–∞—Ç—å
+			HBRUSH hBrush = CreateSolidBrush((COLORREF)color);//—Å–æ–∑–¥–∞–µ–º –∫–∏—Å—Ç—å,–∫–∏—Å—Ç—å –∑–∞–∫—Ä–∞—à–∏–≤–∞–µ—Ç –∑–∞–º–∫–Ω—É—Ç—ã–µ —Ñ–∏–≥—É—Ä—ã
+			SelectObject(hdc, hBrush);//–≤—ã–±–∏—Ä–∞–µ–º —Å–æ–∑–¥–∞–Ω–Ω—É—é –∫–∏—Å—Ç—å //–∫–∏—Å—Ç—å –∏ –∫–∞—Ä–∞–Ω–¥–∞—à –≤—ã–±–∏—Ä–∞—é—Ç—Å—è –¥–ª—è —Ç–æ–≥–æ, —á—Ç–æ–±—ã —Ñ—É–Ω–∫—Ü–∏—è —Ä–µ–∫—Ç–µ–Ω–≥–ª –ø–æ–Ω–∏–º–∞–ª–∞ —á–µ–º —Ä–∏—Å–æ–≤–∞—Ç—å
+			::Ellipse(hdc, start_x, start_y, start_x + get_diameter(), start_y + get_diameter());//—Ä–∏—Å—É–µ—Ç –∫–≤–∞–¥—Ä–∞—Ç
+			DeleteObject(hBrush);//—É–¥–∞–ª—è–µ–º —Å–æ–∑–¥–∞–Ω–Ω—É—é –∫–∏—Å—Ç—å –∏ –∫–∞—Ä–∞–Ω–¥–∞—à
 			DeleteObject(hPen);
 
 			ReleaseDC(hConsole, hdc);
@@ -237,7 +238,150 @@ namespace Geometry
 		void info()const
 		{
 			cout << typeid(*this).name() << endl;
-			cout << "–‡‰ËÛÒ:\t" << radius<<endl;
+			cout << "–†–∞–¥–∏—É—Å:\t" << radius<<endl;
+			Shape::info();
+		}
+	};
+	//class Triangle:public Shape
+	//{
+	//	double a;
+	//	double b;
+	//	double c;
+	//	
+	//	
+	//public:
+	//	double get_a() const
+	//	{
+	//		return a;
+	//	}
+	//	double get_b()const
+	//	{
+	//		return b;
+	//	}
+	//	double get_c()const
+	//	{
+	//		return c;
+	//	}
+	//	void set_a(double a)
+	//	{
+	//		if (a <= 0)a = 5;
+	//		this->a = a;
+	//	}
+	//	void set_b(double b)
+	//	{
+	//		if (b <= 0)b = 5;
+	//		this->b = b;
+	//	}
+	//	void set_c(double c)
+	//	{
+	//		if (c <= 0)c = 5;
+	//		this->c = c;
+	//	}
+	//	Triangle(double a, double b, double c,
+	//		Color color, unsigned int start_x, unsigned int start_y, unsigned int line_width) :
+	//		Shape(color, start_x, start_y, line_width)
+	//	{
+	//		set_a(a);
+	//		set_b(b);
+	//		set_c(c);
+	//		
+	//	}
+	//	~Triangle(){}
+	//	double get_perimeter()const
+	//	{
+	//		return a + b + c;
+	//	}
+	//	double get_area()const
+	//	{
+	//		return sqrt(((a + b + c) / 2) * (((a + b + c) / 2) - a) * (((a + b + c) / 2) - b) * (((a + b + c) / 2) - c));
+	//	}
+	//	void draw()const
+	//	{
+	//		HWND hConsole = GetConsoleWindow();//–ø–æ–ª—É—á–∞–µ–º –æ–∫–Ω–æ –∫–æ–Ω—Å–æ–ª–∏, —á—Ç–æ–±—ã –∫ –Ω–µ–º—É –º –± –æ–±—Ä–∞—Ç–∏—Ç—å—Å—è
+	//		HDC hdc = GetDC(hConsole);//—Å–æ–∑–¥–∞–µ–º –∫–æ–Ω—Ç–µ–∫—Å—Ç —É—Å—Ç—Ä–æ–π—Å—Ç–≤–∞ –¥–ª—è –ø–æ–ª—É—á–µ–Ω–Ω–æ–≥–æ –æ–∫–Ω–∞
+	//		HPEN hPen = CreatePen(PS_SOLID, line_width, (COLORREF)color);//—Å–æ–∑–¥–∞–µ–º –∫–∞—Ä–∞–Ω–¥–∞—à,–∫–æ—Ç–æ—Ä—ã–π –±—É–¥–µ—Ç —Ä–∏—Å–æ–≤–∞—Ç—å –∫–æ–Ω—Ç—É—Ä
+	//		//PSSOLID-—Å–ø–ª–æ—à–Ω–∞—è –ª–∏–Ω–∏—è 5 —Ç–æ–ª—â–∏–Ω–∞ –ª–∏–Ω–∏–∏ 5 –ø–∫—Å,—Ä–≥–±()
+	//		SelectObject(hdc, hPen);//–≤—ã–±–∏—Ä–∞–µ–º —Å–æ–∑–¥–∞–Ω–Ω—ã–π –∫–∞—Ä–∞–Ω–¥–∞—à,—á—Ç–æ–± –∏–º –º –± —Ä–∏—Å–æ–≤–∞—Ç—å
+	//		HBRUSH hBrush = CreateSolidBrush((COLORREF)color);//—Å–æ–∑–¥–∞–µ–º –∫–∏—Å—Ç—å,–∫–∏—Å—Ç—å –∑–∞–∫—Ä–∞—à–∏–≤–∞–µ—Ç –∑–∞–º–∫–Ω—É—Ç—ã–µ —Ñ–∏–≥—É—Ä—ã
+	//		SelectObject(hdc, hBrush);//–≤—ã–±–∏—Ä–∞–µ–º —Å–æ–∑–¥–∞–Ω–Ω—É—é –∫–∏—Å—Ç—å //–∫–∏—Å—Ç—å –∏ –∫–∞—Ä–∞–Ω–¥–∞—à –≤—ã–±–∏—Ä–∞—é—Ç—Å—è –¥–ª—è —Ç–æ–≥–æ, —á—Ç–æ–±—ã —Ñ—É–Ω–∫—Ü–∏—è —Ä–µ–∫—Ç–µ–Ω–≥–ª –ø–æ–Ω–∏–º–∞–ª–∞ —á–µ–º —Ä–∏—Å–æ–≤–∞—Ç—å
+	//		::Polygon(hdc,, 3);//—Ä–∏—Å—É–µ—Ç –∫–≤–∞–¥—Ä–∞—Ç
+	//		DeleteObject(hBrush);//—É–¥–∞–ª—è–µ–º —Å–æ–∑–¥–∞–Ω–Ω—É—é –∫–∏—Å—Ç—å –∏ –∫–∞—Ä–∞–Ω–¥–∞—à
+	//		DeleteObject(hPen);
+	//		ReleaseDC(hConsole, hdc);
+	//	}
+	//	void Move(double start_x, double start_y):Shape()
+	//	{
+	//		Shape a.Move(start_x, start_y);
+	//	}
+	//};
+
+	class Triangle :public Shape
+	{
+	public:
+		virtual double get_height()const = 0;
+		Triangle(Color color, unsigned int start_x, unsigned int start_y, unsigned	int line_width) 
+			:Shape(color, start_x, start_y, line_width) {}
+		~Triangle() {}
+	};
+	class EquilateralTriangle :public Triangle
+	{
+		double side;
+		double height;
+	public:
+		Geometry::EquilateralTriangle(double side, Color color, unsigned int start_x, unsigned int start_y, unsigned	int line_width)
+			:Triangle(color, start_x, start_y, line_width)
+		{
+			set_side(side);
+		}
+		double get_side()
+		{
+			return side;
+		}
+		void set_side(double side)
+		{
+			this->side = side;
+		}
+		~EquilateralTriangle() {};
+		double get_perimeter()const
+		{
+			return side * 3;
+		}
+		double get_height() const
+		{
+			return sqrt(side * side - side * side / 4);
+		}
+		double get_area()const
+		{
+			return 0.5 * side * get_height();
+		}
+		
+		void draw()const
+		{
+			
+			
+			
+			HWND hConsole = GetConsoleWindow();//–ø–æ–ª—É—á–∞–µ–º –æ–∫–Ω–æ –∫–æ–Ω—Å–æ–ª–∏, —á—Ç–æ–±—ã –∫ –Ω–µ–º—É –º –± –æ–±—Ä–∞—Ç–∏—Ç—å—Å—è
+			HDC hdc = GetDC(hConsole);//—Å–æ–∑–¥–∞–µ–º –∫–æ–Ω—Ç–µ–∫—Å—Ç —É—Å—Ç—Ä–æ–π—Å—Ç–≤–∞ –¥–ª—è –ø–æ–ª—É—á–µ–Ω–Ω–æ–≥–æ –æ–∫–Ω–∞
+			HPEN hPen = CreatePen(PS_SOLID, line_width, (COLORREF)color);//—Å–æ–∑–¥–∞–µ–º –∫–∞—Ä–∞–Ω–¥–∞—à,–∫–æ—Ç–æ—Ä—ã–π –±—É–¥–µ—Ç —Ä–∏—Å–æ–≤–∞—Ç—å –∫–æ–Ω—Ç—É—Ä
+			//PSSOLID-—Å–ø–ª–æ—à–Ω–∞—è –ª–∏–Ω–∏—è 5 —Ç–æ–ª—â–∏–Ω–∞ –ª–∏–Ω–∏–∏ 5 –ø–∫—Å,—Ä–≥–±()
+			SelectObject(hdc, hPen);//–≤—ã–±–∏—Ä–∞–µ–º —Å–æ–∑–¥–∞–Ω–Ω—ã–π –∫–∞—Ä–∞–Ω–¥–∞—à,—á—Ç–æ–± –∏–º –º –± —Ä–∏—Å–æ–≤–∞—Ç—å
+			HBRUSH hBrush = CreateSolidBrush((COLORREF)color);//—Å–æ–∑–¥–∞–µ–º –∫–∏—Å—Ç—å,–∫–∏—Å—Ç—å –∑–∞–∫—Ä–∞—à–∏–≤–∞–µ—Ç –∑–∞–º–∫–Ω—É—Ç—ã–µ —Ñ–∏–≥—É—Ä—ã
+			SelectObject(hdc, hBrush);//–≤—ã–±–∏—Ä–∞–µ–º —Å–æ–∑–¥–∞–Ω–Ω—É—é –∫–∏—Å—Ç—å //–∫–∏—Å—Ç—å –∏ –∫–∞—Ä–∞–Ω–¥–∞—à –≤—ã–±–∏—Ä–∞—é—Ç—Å—è –¥–ª—è —Ç–æ–≥–æ, —á—Ç–æ–±—ã —Ñ—É–Ω–∫—Ü–∏—è —Ä–µ–∫—Ç–µ–Ω–≥–ª –ø–æ–Ω–∏–º–∞–ª–∞ —á–µ–º —Ä–∏—Å–æ–≤–∞—Ç—å
+			const POINT point[] = {
+				{start_x,start_y + side},
+				{start_x + side,start_y + side},
+				{start_x + side / 2,start_y+side-get_height() }
+			};
+			::Polygon(hdc,point, 3);//—Ä–∏—Å—É–µ—Ç —Ç—Ä–µ—É–≥–æ–ª—å–Ω–∏–∫
+			DeleteObject(hBrush);//—É–¥–∞–ª—è–µ–º —Å–æ–∑–¥–∞–Ω–Ω—É—é –∫–∏—Å—Ç—å –∏ –∫–∞—Ä–∞–Ω–¥–∞—à
+			DeleteObject(hPen);
+
+			ReleaseDC(hConsole, hdc);
+		}
+		void info()const
+		{
+			cout << typeid(*this).name() << endl;
+			cout << "–î–ª–∏–Ω–∞ —Å—Ç–æ—Ä–æ–Ω—ã:" << side << endl;
 			Shape::info();
 		}
 	};
@@ -245,17 +389,25 @@ namespace Geometry
 void main()
 {
 	setlocale(LC_ALL, "");
-	Geometry::Square square(100,Geometry:: Color::green,0,300,5);
-	/*cout << "—ÚÓÓÌ‡ Í‚‡‰‡Ú‡:\t" << square.get_side() << endl;
-	cout << "œÎÓ˘‡‰¸ Í‚‡‰‡Ú‡:\t" << square.get_area() << endl;
-	cout << "œÂËÏÂÚ Í‚‰‡Ú‡:\t" << square.get_perimeter() << endl;
+	//Geometry::Square square(100,Geometry:: Color::green,0,300,5);
+	/*cout << "–°—Ç–æ—Ä–æ–Ω–∞ –∫–≤–∞–¥—Ä–∞—Ç–∞:\t" << square.get_side() << endl;
+	cout << "–ü–ª–æ—â–∞–¥—å –∫–≤–∞–¥—Ä–∞—Ç–∞:\t" << square.get_area() << endl;
+	cout << "–ü–µ—Ä–∏–º–µ—Ç—Ä –∫–≤–¥—Ä–∞—Ç–∞:\t" << square.get_perimeter() << endl;
 	square.draw();*/
-	square.info();
+	//square.info();
 
-	Geometry::Rectangle rect(100, 50, Geometry::Color::red, 110, 400, 5);
-	rect.info();
+	//Geometry::Rectangle rect(100, 50, Geometry::Color::red, 110, 400, 5);
+	//rect.info();
 
-	Geometry::Circle circle(30, Geometry::Color::blue, 500, 50, 5);
-	circle.info();
+	//Geometry::Circle circle(30, Geometry::Color::blue, 500, 50, 5);
+	//circle.info();
+
+	Geometry::EquilateralTriangle EquilateralTriangle(100, Geometry::Color::blue, 0, 500, 5);
+	EquilateralTriangle.info();
+	
+
+	
+
+
 
 }
