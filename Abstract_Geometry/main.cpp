@@ -352,7 +352,7 @@ namespace Geometry
 		}
 		double get_area()const
 		{
-			return 0.5 * side * get_height();
+			return (sqrt(3) *( side*side)/4);
 		}
 		
 		void draw()const
